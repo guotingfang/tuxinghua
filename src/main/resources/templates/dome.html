@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+您喜欢的城市：<br>
+<ul id="city">
+    <li id="bj" value="beijing">北京</li>
+    <li id="sh" value="shanghai">上海</li>
+    <li id="cq" value="chongqing">重庆</li>
+</ul>
+<button id="btn" onclick="diji()">增加子节点</button>
+
+
+
+<script type="text/javascript">
+    // 增加城市节点“天津"
+    // 创建元素节点--设置属性--创建文本节点--在li上增加文本几点--获取ul节点--增加li节点
+   function diji(){
+
+            var liElement=document.createElement('li');
+            liElement.setAttribute('id','tj');
+            liElement.setAttribute('value','tianjing');
+            var liText=document.createTextNode('天津');
+            liElement.appendChild(liText);
+
+            document.getElementById('city').appendChild(liElement);
+
+    }
+</script>
+</body>
+
+</html>

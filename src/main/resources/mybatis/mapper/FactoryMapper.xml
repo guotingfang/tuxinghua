@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springboot.jxsc.dao.FactoryMapper">
+
+    <resultMap id="factoryRM" type="com.springboot.jxsc.entity.Factory">
+        <id property="id" column="factory_id" />
+        <result property="fullName" column="full_name"/>
+        <result property="factoryName" column="factory_name"/>
+        <result property="contractor" column="contractor"/>
+        <result property="phone" column="phone"/>
+        <result property="mobile" column="mobile"/>
+        <result property="fax" column="fax"/>
+        <result property="conte" column="cnote"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+  <!--  <sql id="all_column" >
+                factory_id,full_name,factory_name, contractor,
+                phone,mobile,fax,cnote,order_no,state
+     </sql>-->
+
+    <select id="findAll" resultMap="factoryRM" parameterType="com.springboot.jxsc.entity.Factory">
+        select
+         *
+         from factory_c
+          where 1=1 ;
+    </select>
+    <select id="selectAll" resultMap="factoryRM">
+        select
+        *
+         from factory_c
+          where 1=1 ;
+
+    </select>
+    <insert id="insertFactory" parameterType="com.springboot.jxsc.entity.Factory">
+        insert into factory_c
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                factory_id,
+            </if>
+            <if test="fullName != null">
+                full_name,
+            </if>
+            <if test="factoryName != null">
+                factory_name,
+            </if>
+            <if test="contractor != null">
+                contractor,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="fax != null">
+                fax,
+            </if>
+            <if test="conte != null">
+                cnote,
+            </if>
+            <if test="orderNo != null">
+                order_no,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+        <trim prefix="value(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="fullName != null">
+                fullName,
+            </if>
+            <if test="factoryName != null">
+                factoryName,
+            </if>
+            <if test="contractor != null">
+                contractor,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="fax != null">
+                fax,
+            </if>
+            <if test="conte != null">
+                cnote,
+            </if>
+            <if test="orderNo != null">
+                orderNo,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+
+    </insert>
+  <!--  <insert id="addFactory" parameterType="com.springboot.jxsc.entity.Factory">
+        insert into
+    </insert>-->
+
+</mapper>

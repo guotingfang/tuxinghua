@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/extreme/extremecomponents.css}" href="../../../static/css/extreme/extremecomponents.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/extreme/extremesite.css}" href="../../../static/css/extreme/extremesite.css" type="text/css">
+    <link rel="stylesheet" rev="stylesheet" type="text/css" th:href="@{/skin/default/css/default.css}" href="../../../static/skin/default/css/default.css" media="all"/>
+    <script th:src="@{js/common.js}" src="../../../static/js/common.js" type="text/javascript"></script>
+
+</head>
+<body>
+<form name="icform" method="post">
+
+    <div id="menubar">
+        <div id="middleMenubar">
+            <div id="innerMenubar">
+                <div id="navMenubar">
+                    <ul>
+                        <li id="view"><a href="#" onclick="formSubmit('toview.action','_self');this.blur();">查看</a></li>
+                        <li id="new"><a href="#" onclick="formSubmit('tocreate.action','_self');this.blur();">新建</a></li>
+                        <li id="update"><a href="#" onclick="formSubmit('toupdate.action','_self');this.blur();">修改</a></li>
+                        <li id="delete"><a href="#" onclick="formSubmit('delete.action','_self');this.blur();">删除1</a></li>
+                        <li id="delete"><a href="#" onclick="formSubmit('deletebatch.action','_self');this.blur();">删除</a></li>
+                        <li id="new"><a href="#" onclick="formSubmit('start.action','_self');this.blur();">启用</a></li>
+                        <li id="new"><a href="#" onclick="formSubmit('stop.action','_self');this.blur();">停止</a></li>
+                        <li id="print"><a href="#" onclick="formSubmit('print.action','_self');this.blur();">打印</a></li>
+                        <li id="print"><a href="#" onclick="formSubmit('printJXL.action','_self');this.blur();">打印</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="textbox" id="centerTextbox">
+        <div class="textbox-header">
+            <div class="textbox-inner-header">
+                <div class="textbox-title">
+                    生产厂家列表
+                </div>
+            </div>
+        </div>
+
+        <div>
+
+            <div class="eXtremeTable" >
+                <table id="ec_table" class="tableRegion" width="98%" >
+                    <thead>
+                    <tr>
+                        <td class="tableHeader"><input type="checkbox" name="selid" onclick="checkAll('id',this)"></td>
+                        <td class="tableHeader">序号</td>
+                        <td class="tableHeader">厂家全称</td>
+                        <td class="tableHeader">缩写</td>
+                        <td class="tableHeader">联系人</td>
+                        <td class="tableHeader">电话</td>
+                        <td class="tableHeader">手机</td>
+                        <td class="tableHeader">状态</td>
+                    </tr>
+                    </thead>
+                    <tbody class="tableBody" >
+                        <tr  class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'"
+                             th:each="factory,stat:${factroys}">
+                            <td><input type="checkbox" name="id" th:text="${factory.id}"/></td>
+                            <td th:text="${stat.index+1}">序号</td>
+                            <td><a href="#" th:text="${factory.fullName}">生产厂家名称</a></td>
+                            <td th:text="${factory.factoryName}">生产厂家简称</td>
+                            <td th:text="${factory.contractor}">联系人</td>
+                            <td th:text="${factory.mobile}">电话</td>
+                            <td th:text="${factory.phone}">手机</td>
+                            <td>
+                                <font th:if="${factory.state}==0" style="color: red">停止</font>
+                                <font th:if="${factory.state}==1" style="color:green">启用</font>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+</form>
+</body>
+</html>

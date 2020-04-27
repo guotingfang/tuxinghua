@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" rev="stylesheet" type="text/css" th:href="@{/skin/default/css/default.css}" href="../../static/skin/default/css/default.css" media="all"/>
+    <script type="text/javascript" th:src="@{/js/common.js}" src="../../static/js/common.js"></script>
+    <script type="text/javascript" th:src="@{/components/jquery-ui/jquery-1.2.6.js}" src="../../static/components/jquery-ui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" th:src="@{/skin/default/js/toggle.js}" src="../../static/skin/default/js/toggle.js"></script>
+    <script src="../static/js/jquery/jquery-3.4.1.js" th:src="@{js/jquery/jquery-3.4.1.js}" type="text/javascript"></script>
+   <!-- <script language="javascript" th:src="@{/js/ajax/setFastMenu.js}" src="/js/ajax/setFastMenu.js"></script>
+    <script language="javascript" th:src="@{/js/pngfix_map.js}" src="js/pngfix_map.js"></script>-->
+</head>
+
+<body id="left_frame">
+<div class="PositionFrame_black" id="PositionFrame"></div>
+
+
+<!-- begin1  -->
+<div id="sidebar" class="sidebar">
+    <div class="sidebar_t">
+        <div class="sidebar_t_l"></div>
+        <div class="sidebar_t_c"></div>
+        <div class="sidebar_t_r"></div>
+    </div>
+    <div class="panel">
+        <div class="panel_icon"> </div>
+        <div class="panel-header">
+            <div class="panel-title">基础代码管理</div>
+            <div class="panel-content">
+                <ul>
+                    <li>
+                        <a href="#" target="main" id="aa_1" onclick="linkHighlighted(this)">系统代码</a>
+                    </li>
+                    <li>
+                        <a   id="aa_2">厂家信息</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar_t">
+        <div class="sidebar_b_l"></div>
+        <div class="sidebar_t_c"></div>
+        <div class="sidebar_b_r"></div>
+    </div>
+</div>
+
+</body>
+</html>
